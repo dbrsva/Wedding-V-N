@@ -61,8 +61,8 @@ section{padding:clamp(72px,12vw,150px) var(--pad)}
 .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);row-gap:4px;text-align:center}
 .cal-grid b{font-weight:400;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--olive);padding-bottom:12px;border-bottom:1px solid var(--line);margin-bottom:8px}
 .cal-grid span{font-family:var(--serif);font-size:20px;line-height:42px;height:42px}
-.cal-grid .on{position:relative;color:var(--milk);font-weight:500}
-.cal-grid .on::before{content:"";position:absolute;inset:0;margin:auto;width:42px;height:42px;border-radius:50%;background:var(--olive);z-index:-1}
+.cal-grid .on{position:relative;color:var(--milk);font-weight:500;font-size:18px}
+.cal-grid .on::before{content:"";position:absolute;inset:0;margin:auto;width:50px;height:50px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%2373785A' d='M12 21.2S3.5 15.8 3.5 9.6A4.6 4.6 0 0 1 12 7.2a4.6 4.6 0 0 1 8.5 2.4c0 6.200-8.500 11.600-8.500 11.600z'/%3E%3C/svg%3E") center/contain no-repeat;z-index:-1}
 .cal-grid .on{z-index:0}
 
 /* closeup */
@@ -88,14 +88,11 @@ section{padding:clamp(72px,12vw,150px) var(--pad)}
 .timeline time{font-family:var(--serif);font-size:34px;line-height:1;text-align:right;white-space:nowrap}
 .timeline span{font-size:14px;letter-spacing:.06em;padding-left:2px}
 .plan{text-align:center}
-.plan .sub{margin-top:18px;color:#5b564c}
 
 /* dress */
 .dress{background:var(--beige);text-align:center}
-.swatches{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,2.5vw,28px);max-width:760px;margin:56px auto 44px}
-.sw i{display:block;aspect-ratio:3/4;width:100%}
-.sw b{display:block;margin-top:14px;font-weight:400;font-size:12px;letter-spacing:.12em}
-.dress .fine{max-width:460px;margin:0 auto;color:#5b564c;font-size:15px}
+.swatches{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,3vw,32px);max-width:560px;margin:56px auto 0}
+.sw i{display:block;aspect-ratio:1;width:100%;border-radius:50%}
 
 /* wishes */
 .wishes .h2{text-align:center;margin-bottom:64px}
@@ -104,6 +101,22 @@ section{padding:clamp(72px,12vw,150px) var(--pad)}
 .wish:last-child{border-right:0}
 .wish h3{font-family:var(--serif);font-weight:400;font-size:28px;margin-bottom:14px}
 .wish p{font-size:15px;color:#4d493f}
+
+/* rsvp */
+.rsvp{background:var(--beige)}
+.fld{display:block;text-align:left}
+.fld span{display:block;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--olive);margin-bottom:6px}
+.fld input{width:100%;font:inherit;font-size:17px;color:var(--ink);background:transparent;border:0;border-bottom:1px solid var(--olive);padding:10px 0;border-radius:0;outline:none}
+.fld input:focus{border-bottom-color:var(--forest)}
+.choice{border:0;margin:34px 0;padding:0;display:flex;gap:14px;justify-content:center}
+.choice label{flex:1;max-width:180px;cursor:pointer}
+.choice input{position:absolute;opacity:0;pointer-events:none}
+.choice span{display:block;padding:13px 0;border:1px solid var(--line);font-size:14px;letter-spacing:.08em;transition:background .5s,color .5s,border-color .5s}
+.choice input:checked+span{background:var(--olive);border-color:var(--olive);color:var(--milk)}
+.choice input:focus-visible+span{outline:1px solid var(--forest);outline-offset:3px}
+.rsvp .btn{cursor:pointer;font-family:inherit}
+.status{min-height:24px;margin-top:20px;font-size:14px;color:var(--forest)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 
 /* finale */
 .finale{text-align:center;padding-bottom:clamp(60px,9vw,110px)}
@@ -152,7 +165,7 @@ footer{height:env(safe-area-inset-bottom,0)}
     <p class="hero-note reveal d3">Мы будем счастливы разделить с вами один из самых важных дней нашей жизни.</p>
   </div>
   <figure class="photo reveal d1">
-    <img src="couple-main.jpg" width="1568" height="2352" fetchpriority="high">
+    <img src="couple-main.jpg" alt="Валерия и Николай обнимаются на вечерней улице" width="1568" height="2352" fetchpriority="high">
   </figure>
   <a class="scroll" href="#invite"><span>Листайте ниже</span><i aria-hidden="true"></i></a>
 </header>
@@ -163,7 +176,6 @@ footer{height:env(safe-area-inset-bottom,0)}
     <h2 class="h2 reveal">Дорогие гости!</h2>
     <hr class="rule reveal">
     <p class="lead reveal d1">В нашей жизни скоро произойдёт особенное событие — день, когда мы станем семьёй. Нам очень хочется разделить эту радость с вами, поэтому будем счастливы видеть вас на нашей свадьбе.</p>
-    <p class="reveal d2" style="margin-top:40px;font-family:var(--serif);font-style:italic;font-size:24px;color:var(--olive)">С любовью, Валерия и Николай</p>
   </div>
 </section>
 
@@ -202,8 +214,7 @@ footer{height:env(safe-area-inset-bottom,0)}
 </section>
 
 <section class="plan" id="plan">
-  <h2 class="h2 reveal">План нашего дня</h2>
-  <p class="sub reveal d1">Каждый момент этого дня хочется разделить с вами.</p>
+  <h2 class="h2 reveal">План торжества</h2>
   <ol class="timeline">
     <li class="reveal"><time>16:00</time><span>Сбор гостей</span></li>
     <li class="reveal"><time>17:00</time><span>Начало банкета</span></li>
@@ -214,17 +225,16 @@ footer{height:env(safe-area-inset-bottom,0)}
 
 <section class="dress" id="dress">
   <div class="narrow">
-    <h2 class="h2 reveal">Ваш образ</h2>
+    <h2 class="h2 reveal">Дресс-код</h2>
     <hr class="rule reveal">
     <p class="lead reveal d1">Нам будет особенно приятно, если в своих образах вы поддержите природную палитру нашего праздника.</p>
   </div>
   <div class="swatches reveal d2">
-    <div class="sw"><i style="background:#D8C5A7"></i><b>Бежевый</b></div>
-    <div class="sw"><i style="background:#80634C"></i><b>Коричневый</b></div>
-    <div class="sw"><i style="background:#858568"></i><b>Оливковый</b></div>
-    <div class="sw"><i style="background:#354638"></i><b>Тёмный зелёный</b></div>
+    <div class="sw"><i style="background:#D8C5A7"></i></div>
+    <div class="sw"><i style="background:#80634C"></i></div>
+    <div class="sw"><i style="background:#858568"></i></div>
+    <div class="sw"><i style="background:#354638"></i></div>
   </div>
-  <p class="fine reveal d3">Необязательно подбирать образ тон в тон. Будем рады, если эти оттенки станут для вас вдохновением.</p>
 </section>
 
 <section class="wishes" id="wishes">
@@ -232,14 +242,31 @@ footer{height:env(safe-area-inset-bottom,0)}
     <h2 class="h2 reveal">Несколько тёплых пожеланий</h2>
     <div class="wish-grid">
       <article class="wish reveal"><h3>Подарки</h3><p>Ваше присутствие — уже большая радость для нас. Если захотите поздравить нас подарком, будем благодарны за денежный подарок, который поможет нам в начале нашей семейной истории.</p></article>
-      <article class="wish reveal d1"><h3>Формат праздника</h3><p>Мы мечтаем о тёплом и спокойном вечере в кругу взрослых, поэтому просим оставить этот праздник для взрослых гостей. Спасибо за понимание и заботу.</p></article>
-      <article class="wish reveal d2"><h3>Пунктуальность</h3><p>Будем благодарны, если вы приедете немного заранее, чтобы мы смогли начать праздник вовремя и провести этот день вместе с самого начала.</p></article>
+      <article class="wish reveal d1"><h3>Формат праздника</h3><p>Зал не предполагает детского пространства, и чтобы в этот вечер вы смогли отдохнуть и расслабиться вместе с нами, просим оставить детей в надёжных руках.</p></article>
+      <article class="wish reveal d2"><h3>Пунктуальность</h3><p>Просим вас рассчитать своё время заранее, чтобы мы смогли начать праздник вовремя и провести этот день с самого начала.</p></article>
     </div>
   </div>
 </section>
 
+<section class="rsvp" id="rsvp">
+  <div class="narrow">
+    <h2 class="h2 reveal">Анкета гостя</h2>
+    <hr class="rule reveal">
+    <form id="rsvp-form" class="reveal d1" novalidate>
+      <label class="fld"><span>Имя и фамилия</span><input type="text" name="name" autocomplete="name" required></label>
+      <fieldset class="choice">
+        <legend class="sr">Ваш ответ</legend>
+        <label><input type="radio" name="answer" value="Буду" required><span>Буду</span></label>
+        <label><input type="radio" name="answer" value="Не буду"><span>Не буду</span></label>
+      </fieldset>
+      <button class="btn" type="submit">Отправить</button>
+      <p class="status" id="rsvp-status" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
 <section class="finale" id="finale">
-  <figure class="photo arch reveal"><img src="couple-main.jpg" alt="" loading="lazy"></figure>
+  <figure class="photo arch reveal"><img src="couple-closeup.jpg" alt="" loading="lazy"></figure>
   <h2 class="h2 reveal d1">Будем ждать вас</h2>
   <hr class="rule reveal d1">
   <p class="d reveal d2">27 ноября 2026</p>
@@ -264,6 +291,20 @@ footer{height:env(safe-area-inset-bottom,0)}
     var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15,rootMargin:'0px 0px -6% 0px'});
     els.forEach(function(el){io.observe(el)});
   }else{els.forEach(function(el){el.classList.add('in')})}
+
+  /* RSVP -> Google Sheets (Apps Script web app). Paste the /exec URL below. */
+  var SCRIPT_URL='https://script.google.com/macros/s/AKfycbx50XGWyjWdqah8hVX3km1XfslwhvNT-kn0w_hvfpl6s_OxJa4HpHMZ2GshYOeI9GbG/exec';
+  var form=document.getElementById('rsvp-form'),st=document.getElementById('rsvp-status');
+  form.addEventListener('submit',function(ev){
+    ev.preventDefault();
+    var name=form.elements.name.value.trim(),ans=form.elements.answer.value;
+    if(!name||!ans){st.textContent='Укажите имя и фамилию и выберите ответ.';return}
+    if(!SCRIPT_URL){st.textContent='Анкета пока не подключена.';return}
+    var btn=form.querySelector('button');btn.disabled=true;st.textContent='Отправляем…';
+    fetch(SCRIPT_URL,{method:'POST',mode:'no-cors',body:new URLSearchParams({name:name,answer:ans})})
+      .then(function(){st.textContent='Спасибо! Ваш ответ получен.';form.reset()})
+      .catch(function(){st.textContent='Не удалось отправить. Попробуйте ещё раз.';btn.disabled=false});
+  });
 
   /* music: try autoplay, fall back to first natural gesture, fade in once */
   var a=document.getElementById('song'),TARGET=.45,started=false,fading=false;
